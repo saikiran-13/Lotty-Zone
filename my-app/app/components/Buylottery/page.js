@@ -21,9 +21,16 @@ const Page = async () => {
 
   useEffect(() => {
     const { ethereum } = window;
+
     ethereum.on('accountsChanged', async (accounts) => {
       console.log('Accounts', accounts[0]);
       localStorage.setItem('connectedAddress', accounts[0]);
+
+      let signerAdd = localStorage.getItem('connnectedAddress');
+      if (accounts.length == 0) {
+        route.push('/');
+        console.log('disconnected', signerAdd);
+      }
       setSigner(accounts[0]);
       await Lotterycontract();
     });
@@ -114,7 +121,13 @@ const Page = async () => {
     <div className="flex justify-around place-content-center m-auto mb-24 w-full">
       <ToastContainer />
       <div className="drop-shadow-lg flex mt-14 ml-60 items-center">
-        <Image className="m-auto" src={owner} width={300} height={200}></Image>
+        <Image
+          className="m-auto"
+          src={owner}
+          alt="Image not found"
+          width={300}
+          height={200}
+        ></Image>
       </div>
       <div className="shadow-blue-500 shadow-lg rounded-xl h-max flex flex-col m-auto mt-14 p-20 gap-5 justify-center ">
         <div className="flex m-auto flex-col ">
@@ -160,7 +173,13 @@ const Page = async () => {
         </div>
       </div>
       <div className="drop-shadow-lg flex mt-14 mr-40 items-center">
-        <Image className="m-auto" src={ticket} width={400} height={200}></Image>
+        <Image
+          className="m-auto"
+          src={ticket}
+          alt="Image not found"
+          width={400}
+          height={200}
+        ></Image>
       </div>
     </div>
   );

@@ -10,11 +10,7 @@ export const Appcontext = createContext();
 export default function Home() {
   return (
     <main>
-      <div>
-        <RootLayout connect={true}>
-          <Homepage />
-        </RootLayout>
-      </div>
+      <Homepage />
     </main>
   );
 }

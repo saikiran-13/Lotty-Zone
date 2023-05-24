@@ -1,7 +1,6 @@
 'use client';
 import { abi as contractabi } from '../../../abi/abi';
 import { tokenabi } from '../../../abi/token';
-import { useEffect } from 'react';
 
 const { ethers } = require('ethers');
 export async function Lotterycontract() {

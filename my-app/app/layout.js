@@ -1,6 +1,7 @@
 'use client';
 import './globals.css';
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
+
 import { Inter } from 'next/font/google';
 import Header from '@/app/components/Header/page';
 import Footer from '@/app/components/Footer/page';
@@ -14,6 +15,7 @@ export default function RootLayout({ children, connect }) {
   const [flag, setFlag] = useState(true);
   const [signer, setSigner] = useState('');
   const [networkName, setNetworkName] = useState('');
+
   return (
     <html lang="en">
       <body className="bg-white">
@@ -31,7 +33,7 @@ export default function RootLayout({ children, connect }) {
             setWinnerAddress,
           }}
         >
-          <Header connect={connect} />
+          <Header />
 
           <div className="flex-grow">{children}</div>
 
