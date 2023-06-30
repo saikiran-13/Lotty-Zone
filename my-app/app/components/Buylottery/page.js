@@ -25,11 +25,8 @@ const Page = async () => {
     ethereum.on('accountsChanged', async (accounts) => {
       console.log('Accounts', accounts[0]);
       localStorage.setItem('connectedAddress', accounts[0]);
-
-      let signerAdd = localStorage.getItem('connnectedAddress');
       if (accounts.length == 0) {
         route.push('/');
-        console.log('disconnected', signerAdd);
       }
       setSigner(accounts[0]);
       await Lotterycontract();
