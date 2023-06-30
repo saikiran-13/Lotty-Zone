@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Lotterycontract, Tokencontract } from '../ContractInstance/page';
+import { Lotterycontract, Tokencontract } from '../../../ContractInstance/page';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect, useContext } from 'react';
 import { ethers } from 'ethers';

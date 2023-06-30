@@ -1,8 +1,9 @@
 'use client';
-import { abi as contractabi } from '../../../abi/abi';
-import { tokenabi } from '../../../abi/token';
+import { abi as contractabi } from '../abi/abi';
+import { tokenabi } from '../abi/token';
+import { ethers } from 'ethers';
 
-const { ethers } = require('ethers');
+// const { ethers } = require('ethers');
 export async function Lotterycontract() {
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   await provider.send('eth_requestAccounts', []);
@@ -30,3 +31,5 @@ export async function Tokencontract() {
   const tokenContract = new ethers.Contract(contractAddress, tokenabi, signer);
   return { signerAddress, signer, tokenContract };
 }
+
+module.exports = {}
